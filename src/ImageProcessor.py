@@ -22,7 +22,7 @@ class ImageProcessor:
 
         return folder
 
-    def __get_dimensions(self, size: int, image: Image.Image) -> tuple:
+    def __get_dimensions(self, size: int, image: Image.Image) -> tuple[int, int]:
         """
         Get the new dimensions for the image with the correct aspect ratio
 
