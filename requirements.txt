@@ -1,3 +1,4 @@
 Pillow
 numpy
 ruff
+pre-commit
