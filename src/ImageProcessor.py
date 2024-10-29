@@ -1,6 +1,5 @@
 import os
 from PIL import Image
-import numpy
 from datetime import datetime
 
 
@@ -11,7 +10,9 @@ class ImageProcessor:
         self.path = path
 
     def __create_processed_folder(self) -> str:
-        folder = os.path.join(self.PROCESSED_FOLDER_PATH, datetime.now().strftime("%Y%m%d%H%M%S"))
+        folder = os.path.join(
+            self.PROCESSED_FOLDER_PATH, datetime.now().strftime("%Y%m%d%H%M%S")
+        )
 
         if not os.path.exists(self.PROCESSED_FOLDER_PATH):
             raise FileNotFoundError(f"Folder {self.PROCESSED_FOLDER_PATH} not found")
