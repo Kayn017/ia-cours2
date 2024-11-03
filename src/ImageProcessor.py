@@ -10,17 +10,17 @@ class ImageProcessor:
         self.path = path
 
     def __create_processed_folder(self) -> str:
-        folder = os.path.join(
+        folder_path = os.path.join(
             self.PROCESSED_FOLDER_PATH, datetime.now().strftime("%Y%m%d%H%M%S")
         )
 
         if not os.path.exists(self.PROCESSED_FOLDER_PATH):
             raise FileNotFoundError(f"Folder {self.PROCESSED_FOLDER_PATH} not found")
 
-        if not os.path.exists(folder):
-            os.makedirs(folder)
+        if not os.path.exists(folder_path):
+            os.makedirs(folder_path)
 
-        return folder
+        return folder_path
 
     def __get_dimensions(self, size: int, image: Image.Image) -> tuple[int, int]:
         """
