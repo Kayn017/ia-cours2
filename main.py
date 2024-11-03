@@ -1,17 +1,20 @@
 from src.ImageProcessor import ImageProcessor
-import sys
+import argparse
 
 
 def main():
-    if len(sys.argv) != 3:
-        print("Usage: python main.py <folder_path> <image_size>")
-        sys.exit(1)
+    parser = argparse.ArgumentParser(description="Image processing pipeline")
 
-    image_path = sys.argv[1]
-    image_size = int(sys.argv[2])
+    parser.add_argument('--folder_path', type=str, help='Path to the folder containing all images to process')
+    parser.add_argument('--resolution', type=int, help='Resolution of the processed image')
 
-    processor = ImageProcessor(sys.argv[1])
-    processor.process_folder(image_size)
+    args = parser.parse_args()
+
+    folder_path = args.folder_path
+    resolution = args.resolution
+
+    processor = ImageProcessor(folder_path)
+    processor.process_folder(resolution)
 
 
 if __name__ == '__main__':
