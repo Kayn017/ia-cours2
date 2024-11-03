@@ -4,5 +4,5 @@
     <option name="pathToExecutable" value="$PROJECT_DIR$/.venv/bin/ruff" />
     <option name="sdkName" value="Python 3.12 (Cours2)" />
   </component>
-  <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.12 (Cours2)" project-jdk-type="Python SDK" />
+  <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.12 (ia-cours2)" project-jdk-type="Python SDK" />
 </project>
