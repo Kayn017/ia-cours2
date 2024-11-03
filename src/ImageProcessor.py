@@ -9,7 +9,7 @@ class ImageProcessor:
     def __init__(self, path: str):
         self.path = path
 
-    def __create_processed_folder(self) -> str:
+    def _create_processed_folder(self) -> str:
         folder_path = os.path.join(
             self.PROCESSED_FOLDER_PATH, datetime.now().strftime("%Y%m%d%H%M%S")
         )
@@ -22,7 +22,7 @@ class ImageProcessor:
 
         return folder_path
 
-    def __get_dimensions(self, size: int, image: Image.Image) -> tuple[int, int]:
+    def _get_dimensions(self, size: int, image: Image.Image) -> tuple[int, int]:
         """
         Get the new dimensions for the image with the correct aspect ratio
 
@@ -43,7 +43,7 @@ class ImageProcessor:
 
         return new_width, new_height
 
-    def __add_padding(self, image: Image.Image) -> Image.Image:
+    def _add_padding(self, image: Image.Image) -> Image.Image:
         """
         Add padding to the image to make it square
 
@@ -59,7 +59,7 @@ class ImageProcessor:
             new_image.paste(image, (0, 0))
             return new_image
 
-    def __process_image(self, file: str, size: int, dest: str) -> None:
+    def _process_image(self, file: str, size: int, dest: str) -> None:
         """
         Resize and pad the image
 
@@ -77,11 +77,11 @@ class ImageProcessor:
         print(f"Processing image {file}...")
         image = Image.open(file_path).convert("RGB")
 
-        width, height = self.__get_dimensions(size, image)
+        width, height = self._get_dimensions(size, image)
 
         image.resize((width, height))
 
-        result = self.__add_padding(image)
+        result = self._add_padding(image)
 
         result.save(os.path.join(dest, file))
 
@@ -91,8 +91,8 @@ class ImageProcessor:
         if not os.path.exists(self.path):
             raise FileNotFoundError(f"Folder {self.path} not found")
 
-        folder = self.__create_processed_folder()
+        folder = self._create_processed_folder()
 
         for file in os.listdir(self.path):
             if file.endswith(".jpg"):
-                self.__process_image(file, size, folder)
+                self._process_image(file, size, folder)
