@@ -5,8 +5,14 @@ import argparse
 def main():
     parser = argparse.ArgumentParser(description="Image processing pipeline")
 
-    parser.add_argument('--folder_path', type=str, help='Path to the folder containing all images to process')
-    parser.add_argument('--resolution', type=int, help='Resolution of the processed image')
+    parser.add_argument(
+        "--folder_path",
+        type=str,
+        help="Path to the folder containing all images to process",
+    )
+    parser.add_argument(
+        "--resolution", type=int, help="Resolution of the processed image"
+    )
 
     args = parser.parse_args()
 
@@ -17,5 +23,5 @@ def main():
     processor.process_folder(resolution)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

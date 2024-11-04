@@ -94,5 +94,5 @@ class ImageProcessor:
         folder = self._create_processed_folder()
 
         for file in os.listdir(self.path):
-            if file.endswith(".jpg"):
+            if file.endswith((".jpg", ".png", ".gif")):
                 self._process_image(file, size, folder)
